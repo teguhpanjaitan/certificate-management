@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DashboardController@index');
+Route::get('/certificate', 'CertificateController@index');
+Route::get('/account', 'AccountController@index');

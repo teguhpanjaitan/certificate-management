@@ -4,14 +4,21 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header"></li>
+        @if (Request::is('certificate*'))
+        <li class="active">
+        @else
         <li>
+        @endif
             <a href="/certificate">
                 <i class="fa fa-th"></i> <span>Certification Management</span>
             </a>
-
         </li>
 
+        @if (Request::is('account*'))
+        <li class="active">
+        @else
         <li>
+        @endif
             <a href="/account">
                 <i class="fa fa-user"></i><span>Account Management</span>
             </a>

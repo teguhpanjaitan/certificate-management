@@ -5,15 +5,15 @@
     @include('includes.head')
 </head>
 
-<body>
-    <div class="container">
-        <header class="row">
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
             @include('includes.header')
         </header>
         <aside class="main-sidebar">
             @include('includes.sidebar')
         </aside>
-        <div id="main" class="row">
+        <div class="content-wrapper">
             @yield('content')
         </div>
         <footer class="main-footer">
