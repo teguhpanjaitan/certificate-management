@@ -23,9 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('updated_by');
+            $table->unsignedBigInteger('updated_by');
             $table->string('remarks');
-            $table->tinyInteger('locked');
+            $table->tinyInteger('locked')->default(0);
         });
     }
 

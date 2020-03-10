@@ -6,7 +6,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Dashboard
+        SIPMM Administration Portal
     </h1>
     <div class="breadcrumb"></div>
 
@@ -24,7 +24,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>5</h3>
+                    <h3>{{ $userCount }}</h3>
                     <p>Users </p>
                 </div>
                 <div class="icon">
@@ -38,7 +38,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>268</h3>
+                    <h3>{{ $certCount }}</h3>
                     <p>Certificates</p>
                 </div>
                 <div class="icon">
