@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="index.php"><b>SIPMM </b>ADMIN</a>
+        <a href="/"><b>SIPMM </b>ADMIN</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -41,7 +41,7 @@
                 @csrf
             </form>
         </div>
-        <a href="/forgot-password">I forgot my password</a><br>
+        <a href="/password/reset">I forgot my password</a><br>
     </div>
 </div>
 <!-- /.login-box -->

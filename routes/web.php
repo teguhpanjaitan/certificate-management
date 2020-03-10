@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('auth');
+Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('auth')->name('home');
 Route::get('/certificate', 'CertificateController@index')->name('certificate.all')->middleware('auth');
 Route::get('/certificate/add', 'CertificateController@add')->middleware('auth');
 Route::post('/certificate/add', 'CertificateController@add')->middleware('auth');
@@ -32,5 +32,13 @@ Route::get('/account/lock/{id}/{value}', 'AccountController@lock')->middleware('
 Route::get('/logout', 'AuthenticationController@doLogout')->middleware('auth');
 Route::get('/login', 'AuthenticationController@showLogin')->name("login");
 Route::post('/login', 'AuthenticationController@doLogin');
-Route::get('/forgot-password', 'ForgotPasswordController@show');
-Route::post('/forgot-password', 'ForgotPasswordController@reset');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+Route::get('/home', function () {
+    return redirect('/');
+});
