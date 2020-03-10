@@ -20,4 +20,11 @@ Route::post('/certificate/add', 'CertificateController@add');
 Route::get('/certificate/edit/{id}', 'CertificateController@edit');
 Route::post('/certificate/update', 'CertificateController@update');
 Route::get('/certificate/delete/{id}', 'CertificateController@delete');
-Route::get('/account', 'AccountController@index');
+
+Route::get('/account', 'AccountController@index')->name('account.all');
+Route::get('/account/add', 'AccountController@add');
+Route::post('/account/add', 'AccountController@add');
+Route::get('/account/edit/{id}', 'AccountController@edit');
+Route::post('/account/update', 'AccountController@update');
+Route::get('/account/delete/{id}', 'AccountController@delete');
+Route::get('/account/lock/{id}/{value}', 'AccountController@lock');

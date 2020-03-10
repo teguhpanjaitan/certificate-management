@@ -171,4 +171,9 @@
         modal.find('.modal-body #confirm-link').attr('href', '/certificate/delete/' + cert_id);
     });
 </script>
+<style>
+    #table_filter{
+        text-align: right;
+    }
+</style>
 @endsection
