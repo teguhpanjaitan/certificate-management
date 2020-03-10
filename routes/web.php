@@ -32,5 +32,5 @@ Route::get('/account/lock/{id}/{value}', 'AccountController@lock')->middleware('
 Route::get('/logout', 'AuthenticationController@doLogout')->middleware('auth');
 Route::get('/login', 'AuthenticationController@showLogin')->name("login");
 Route::post('/login', 'AuthenticationController@doLogin');
-Route::get('/forget-password', 'AuthenticationController@showForgetPassword');
-Route::post('/forget-password', 'AuthenticationController@doForgetPassword');
+Route::get('/forgot-password', 'ForgotPasswordController@show');
+Route::post('/forgot-password', 'ForgotPasswordController@reset');

@@ -13,7 +13,7 @@ class AuthenticationController extends Controller
     //
     public function showLogin()
     {
-        return view('pages.auth.login', ['error' => false, 'message' => '']);
+        return view('pages.login');
     }
 
     public function doLogin(Request $request)
@@ -54,14 +54,5 @@ class AuthenticationController extends Controller
     {
         Auth::logout(); // log the user out of our application
         return Redirect::to('login'); // redirect the user to the login screen
-    }
-
-    public function showForgetPassword()
-    {
-        return view('pages.auth.forgetpassword');
-    }
-
-    public function doForgetPassword()
-    {
     }
 }
