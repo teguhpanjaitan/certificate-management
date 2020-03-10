@@ -13,18 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index');
-Route::get('/certificate', 'CertificateController@index')->name('certificate.all');
-Route::get('/certificate/add', 'CertificateController@add');
-Route::post('/certificate/add', 'CertificateController@add');
-Route::get('/certificate/edit/{id}', 'CertificateController@edit');
-Route::post('/certificate/update', 'CertificateController@update');
-Route::get('/certificate/delete/{id}', 'CertificateController@delete');
+Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('auth');
+Route::get('/certificate', 'CertificateController@index')->name('certificate.all')->middleware('auth');
+Route::get('/certificate/add', 'CertificateController@add')->middleware('auth');
+Route::post('/certificate/add', 'CertificateController@add')->middleware('auth');
+Route::get('/certificate/edit/{id}', 'CertificateController@edit')->middleware('auth');
+Route::post('/certificate/update', 'CertificateController@update')->middleware('auth');
+Route::get('/certificate/delete/{id}', 'CertificateController@delete')->middleware('auth');
 
-Route::get('/account', 'AccountController@index')->name('account.all');
-Route::get('/account/add', 'AccountController@add');
-Route::post('/account/add', 'AccountController@add');
-Route::get('/account/edit/{id}', 'AccountController@edit');
-Route::post('/account/update', 'AccountController@update');
-Route::get('/account/delete/{id}', 'AccountController@delete');
-Route::get('/account/lock/{id}/{value}', 'AccountController@lock');
+Route::get('/account', 'AccountController@index')->name('account.all')->middleware('auth');
+Route::get('/account/add', 'AccountController@add')->middleware('auth');
+Route::post('/account/add', 'AccountController@add')->middleware('auth');
+Route::get('/account/edit/{id}', 'AccountController@edit')->middleware('auth');
+Route::post('/account/update', 'AccountController@update')->middleware('auth');
+Route::get('/account/delete/{id}', 'AccountController@delete')->middleware('auth');
+Route::get('/account/lock/{id}/{value}', 'AccountController@lock')->middleware('auth');
+
+Route::get('/logout', 'AuthenticationController@doLogout')->middleware('auth');
+Route::get('/login', 'AuthenticationController@showLogin')->name("login");
+Route::post('/login', 'AuthenticationController@doLogin');
+Route::get('/forget-password', 'AuthenticationController@showForgetPassword');
+Route::post('/forget-password', 'AuthenticationController@doForgetPassword');
