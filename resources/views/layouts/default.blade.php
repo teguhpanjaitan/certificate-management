@@ -23,4 +23,5 @@
 </body>
 
 @include('includes.foot')
+@yield('additional_foot')
 </html>

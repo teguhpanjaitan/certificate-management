@@ -17,7 +17,7 @@ class CreateCertificatesTable extends Migration
             $table->id();
             $table->string("cred_reference",250);
             $table->date("awarded_date");
-            $table->string("receipent",250);
+            $table->string("recipient",250);
             $table->string("name_of_award",1024);
             $table->string("nature_of_award",1024);
             $table->timestamps();

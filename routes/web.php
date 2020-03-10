@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'DashboardController@index');
-Route::get('/certificate', 'CertificateController@index');
+Route::get('/certificate', 'CertificateController@index')->name('certificate.all');
+Route::get('/certificate/add', 'CertificateController@add');
+Route::post('/certificate/add', 'CertificateController@add');
+Route::get('/certificate/edit/{id}', 'CertificateController@edit');
+Route::post('/certificate/update', 'CertificateController@update');
+Route::get('/certificate/delete/{id}', 'CertificateController@delete');
 Route::get('/account', 'AccountController@index');
