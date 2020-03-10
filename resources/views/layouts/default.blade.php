@@ -22,4 +22,5 @@
     </div>
 </body>
 
+@include('includes.foot')
 </html>
