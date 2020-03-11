@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('auth')->name('home');
+Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('auth');
 Route::get('/certificate', 'CertificateController@index')->name('certificate.all')->middleware('auth');
 Route::get('/certificate/add', 'CertificateController@add')->middleware('auth');
 Route::post('/certificate/add', 'CertificateController@add')->middleware('auth');
