@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -12,7 +13,7 @@ class AccountController extends Controller
     public function index()
     {
         $accounts = User::all();
-        return view('pages.account.all', ['role' => 'admin', 'accounts' => $accounts]);
+        return view('pages.account.all', ['role' => Auth::user()->user_role, 'accounts' => $accounts]);
     }
 
     public function add(Request $request)

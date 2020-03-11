@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Certificate;
+use Illuminate\Support\Facades\Auth;
 
 class CertificateController extends Controller
 {
@@ -11,7 +12,7 @@ class CertificateController extends Controller
     public function index()
     {
         $certificates = Certificate::where('deleted', '=', '0')->get();
-        return view('pages.certificate.all', ['role' => 'admin', 'certificates' => $certificates]);
+        return view('pages.certificate.all', ['role' => Auth::user()->user_role, 'certificates' => $certificates]);
     }
 
     public function add(Request $request)
