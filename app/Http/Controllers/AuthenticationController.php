@@ -38,9 +38,9 @@ class AuthenticationController extends Controller
             $result = User::where([
                 ['login_id', "=", $request->get('loginid')],
                 ['locked', "=", '1']
-            ]);
+            ])->get();
 
-            if ($result) {
+            if (!$result->isEmpty()) {
                 return Redirect::to('login')->withErrors('Your Accout is locked. Please contact site Admin.');
             }
 
