@@ -3,6 +3,14 @@
 @section('title', '| Certificates')
 
 @section('content')
+@if($errors->any())
+<div class="callout callout-danger">
+    @foreach ($errors->all() as $error)
+    <h4>{{$error}}</h4>
+    @endforeach
+</div>
+@endif
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -26,7 +34,7 @@
                         <div class="form-group">
                             <label for="certno" class="col-sm-2 control-label">Credential Reference</label>
                             <div class="col-sm-10">
-                                <input class="form-control c_validate" data-valid="cred_reference" id="certno" name="certno" placeholder="Credential Reference" type="text" required="">
+                                <input class="form-control c_validate" data-valid="cred_reference" id="certno" name="certno" placeholder="Credential Reference" type="text" required="" value="{{ old('certno') }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -39,19 +47,19 @@
                             <label for="recipient" class="col-sm-2 control-label">Name of Recipient</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" id="recipient" name="recipient" placeholder="Name of Recipient" type="text" required="">
+                                <input class="form-control" id="recipient" name="recipient" placeholder="Name of Recipient" type="text" required="" value="{{ old('recipient') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="awardname" class="col-sm-2 control-label">Name of Award</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="awardname" name="awardname" placeholder="Name of Award" type="text" required="">
+                                <input class="form-control" id="awardname" name="awardname" placeholder="Name of Award" type="text" required="" value="{{ old('awardname') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="natureofaward" class="col-sm-2 control-label">Nature of Award</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="natureofaward" name="natureofaward" placeholder="Nature of Award" type="text" required="">
+                                <input class="form-control" id="natureofaward" name="natureofaward" placeholder="Nature of Award" type="text" required="" value="{{ old('natureofaward') }}">
                             </div>
                         </div>
                     </div>

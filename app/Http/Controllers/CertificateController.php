@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Certificate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 
 class CertificateController extends Controller
 {
@@ -18,9 +21,19 @@ class CertificateController extends Controller
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {
-            // $this->validate($request, [
-            //     'title'    => 'required|max:255|unique:posts|string'
-            // ]);
+            $rules = array(
+                'certno' => 'required|numeric|min:5',
+                'dateawarded' => 'required|date_format:Y-m-d',
+                'recipient' => 'required|min:3',
+                'awardname' => 'required|min:5',
+                'natureofaward' => 'required|min:5',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return Redirect::to('/certificate/add')->withErrors($validator)->withInput();
+            }
 
             Certificate::create([
                 'cred_reference' => $request->certno,
@@ -28,7 +41,7 @@ class CertificateController extends Controller
                 'recipient' => $request->recipient,
                 'name_of_award' => $request->awardname,
                 'nature_of_award' => $request->natureofaward,
-                'updated_by' => '1'
+                'updated_by' => Auth::id()
             ]);
             return redirect(route('certificate.all'));
         } else {
@@ -46,13 +59,27 @@ class CertificateController extends Controller
     public function update(Request $request)
     {
         if ($request->isMethod('post')) {
+            $rules = array(
+                'certno' => 'required|numeric|min:5',
+                'dateawarded' => 'required|date_format:Y-m-d',
+                'recipient' => 'required|min:3',
+                'awardname' => 'required|min:5',
+                'natureofaward' => 'required|min:5',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return Redirect::to('/certificate')->withErrors($validator);
+            }
+
             Certificate::where('id', $request->id)->update([
                 'cred_reference' => $request->certno,
                 'awarded_date' => $request->dateawarded,
                 'recipient' => $request->recipient,
                 'name_of_award' => $request->awardname,
                 'nature_of_award' => $request->natureofaward,
-                'updated_by' => '1'
+                'updated_by' => Auth::id()
             ]);
         }
 
@@ -63,7 +90,7 @@ class CertificateController extends Controller
     {
         Certificate::where('id', $id)->update([
             'deleted' => '1',
-            'updated_by' => '1'
+            'updated_by' => Auth::id()
         ]);
 
         return redirect(route('certificate.all'));
