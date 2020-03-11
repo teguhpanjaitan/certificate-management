@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Input;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -33,6 +33,16 @@ class AuthenticationController extends Controller
                 ->withErrors($validator) // send back all errors to the login form
                 ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
         } else {
+            //check locked first
+
+            $result = User::where([
+                ['login_id', "=", $request->get('loginid')],
+                ['locked', "=", '1']
+            ]);
+
+            if ($result) {
+                return Redirect::to('login')->withErrors('Your Accout is locked. Please contact site Admin.');
+            }
 
             // create our user data for the authentication
             $userdata = array(
