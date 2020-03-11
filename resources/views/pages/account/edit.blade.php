@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="loginid" class="col-sm-2 control-label">Login ID</label>
             <div class="col-sm-10">
-                <input class="form-control c_validate" data-valid="login_id" id="loginid" name="loginid" placeholder="Login ID" type="text" required="required" value="{{$user->login_id}}">
+                <input class="form-control c_validate" data-valid="login_id" id="loginid" name="login_id" placeholder="Login ID" type="text" required="required" value="{{$user->login_id}}">
             </div>
         </div>
         <div class="form-group">

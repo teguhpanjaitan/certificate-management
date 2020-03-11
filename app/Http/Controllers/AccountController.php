@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
 {
@@ -19,18 +22,28 @@ class AccountController extends Controller
     public function add(Request $request)
     {
         if ($request->isMethod('post')) {
-            // $this->validate($request, [
-            //     'title'    => 'required|max:255|unique:posts|string'
-            // ]);
+            $rules = array(
+                'login_id'    => 'required|unique:users|alphaNum|min:5',
+                'inputPassword3' => 'required|alphaNum|min:5',
+                'fullname' => 'required|min:5',
+                'inputEmail3' => 'required|email',
+                'role' => 'required',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return Redirect::to('/account/add')->withErrors($validator)->withInput($request->except('password'));
+            }
 
             User::create([
                 'user_role' => $request->role,
-                'login_id' => $request->loginid,
+                'login_id' => $request->login_id,
                 'password' => Hash::make($request->inputPassword3),
                 'name' => $request->fullname,
                 'email' => $request->inputEmail3,
                 'remarks' => $request->remarks,
-                'updated_by' => '1'
+                'updated_by' => Auth::id()
             ]);
 
             return redirect(route('account.all'));
@@ -48,14 +61,32 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         if ($request->isMethod('post')) {
+            $rules = array(
+                'login_id'    => [
+                    'required',
+                    'alphaNum',
+                    'min:5',
+                    Rule::unique('users')->ignore($request->id),
+                ],
+                'inputPassword3' => 'required|alphaNum|min:5',
+                'fullname' => 'required|min:5',
+                'inputEmail3' => 'required|email',
+                'role' => 'required',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return Redirect::to('/account')->withErrors($validator);
+            }
 
             $data = [
                 'user_role' => $request->role,
-                'login_id' => $request->loginid,
+                'login_id' => $request->login_id,
                 'name' => $request->fullname,
                 'email' => $request->inputEmail3,
                 'remarks' => $request->remarks,
-                'updated_by' => '1'
+                'updated_by' => Auth::id()
             ];
 
             if (!empty($request->inputPassword3)) {
@@ -76,11 +107,11 @@ class AccountController extends Controller
         return redirect(route('account.all'));
     }
 
-    public function lock($id,$value)
+    public function lock($id, $value)
     {
         User::where('id', $id)->update([
             'locked' => $value,
-            'updated_by' => '1'
+            'updated_by' => Auth::id()
         ]);
 
         return redirect(route('account.all'));
