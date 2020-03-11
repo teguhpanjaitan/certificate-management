@@ -1,6 +1,6 @@
 @extends('layouts.singleform')
 
-@section('title', '| Forget Password')
+@section('title', 'Forget Password')
 
 @section('content')
 <div class="login-box">
