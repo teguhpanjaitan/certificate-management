@@ -52,7 +52,12 @@ class AuthenticationController extends Controller
 
             // attempt to do the login
             if (Auth::attempt($userdata)) {
-                return redirect(route('dashboard'));
+                if(Auth::user()->user_role == "admin"){
+                    return redirect(route('dashboard'));
+                }
+                else{
+                    return redirect(route('certificate.all'));
+                }
             } else {
                 // validation not successful, send back to form 
                 return Redirect::to('login')->withErrors('Sorry, we cannot find your account details please try again');
