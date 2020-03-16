@@ -43,7 +43,7 @@
                                 <th>Name of Award</th>
                                 <th>Nature of Award</th>
                                 @if ($role === "admin")
-                                <th>Action</th>
+                                <th style="min-width:65px">Action</th>
                                 @endif
                             </tr>
                         </thead>
@@ -59,10 +59,10 @@
                                 @if ($role === "admin")
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#editmodel" data-certid="{{ $certificate->id }}" data-title="Edit Certificate">
-                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 15px 0px 15px"></i>
+                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 5px 0px 5px"></i>
                                     </a>
                                     <a href="#" data-toggle="modal" data-target="#deletemodel" data-certid="{{ $certificate->id }}">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        <i class="fa fa-trash-o" aria-hidden="true" style="padding:0px 5px 0px 5px"></i>
                                     </a>
                                 </td>
                                 @endif

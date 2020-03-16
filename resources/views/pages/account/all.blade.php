@@ -44,7 +44,7 @@
                                 <th>Full Name</th>
                                 <th>Remarks</th>
                                 @if ($role === "admin")
-                                <th>Edit</th>
+                                <th style="min-width:90px">Edit</th>
                                 @endif
                             </tr>
                         </thead>
@@ -60,16 +60,16 @@
                                 @if ($role === "admin")
                                 <td>
                                     <a href="#" data-toggle="modal" data-target="#editmodel" data-userid="{{ $account->id }}" data-title="Edit Account">
-                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 15px 0px 15px"> </i>
+                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 10px 0px 10px"> </i>
                                     </a>
                                     <a href="#" data-toggle="modal" data-target="#deletemodel" data-userid="{{ $account->id }}">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </a>
                                     <a href="#" data-toggle="modal" data-title="{{ $account->locked }}" data-target="#lockmodel" data-userid="{{ $account->id }}">
                                         @if ($account->locked === 1)
-                                        <i class="fa fa-unlock-alt" aria-hidden="true" style="padding:0px 15px 0px 15px"></i>
+                                        <i class="fa fa-unlock-alt" aria-hidden="true" style="padding:0px 10px 0px 10px"></i>
                                         @else
-                                        <i class="fa fa-lock" aria-hidden="true" style="padding:0px 15px 0px 15px"></i>
+                                        <i class="fa fa-lock" aria-hidden="true" style="padding:0px 10px 0px 10px"></i>
                                         @endif
                                     </a>
                                 </td>
