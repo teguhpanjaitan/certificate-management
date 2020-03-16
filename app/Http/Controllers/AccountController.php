@@ -15,12 +15,20 @@ class AccountController extends Controller
     //
     public function index()
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         $accounts = User::all();
         return view('pages.account.all', ['role' => Auth::user()->user_role, 'accounts' => $accounts]);
     }
 
     public function add(Request $request)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         if ($request->isMethod('post')) {
             $rules = array(
                 'login_id'    => 'required|unique:users|alphaNum|min:5',
@@ -54,12 +62,20 @@ class AccountController extends Controller
 
     public function edit($id)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         $user = User::findOrFail($id);
         return view('pages.account.edit', ['user' => $user]);
     }
 
     public function update(Request $request)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         if ($request->isMethod('post')) {
             $rules = array(
                 'login_id'    => [
@@ -101,6 +117,10 @@ class AccountController extends Controller
 
     public function delete($id)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         $user = User::find($id);
         $user->delete();
 
@@ -109,6 +129,10 @@ class AccountController extends Controller
 
     public function lock($id, $value)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+        
         User::where('id', $id)->update([
             'locked' => $value,
             'updated_by' => Auth::id()

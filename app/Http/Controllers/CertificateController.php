@@ -20,6 +20,10 @@ class CertificateController extends Controller
 
     public function add(Request $request)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         if ($request->isMethod('post')) {
             $rules = array(
                 'certno' => 'required|numeric|min:5',
@@ -51,6 +55,9 @@ class CertificateController extends Controller
 
     public function edit($id)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
 
         $certificate = Certificate::findOrFail($id);
         return view('pages.certificate.edit', ['certificate' => $certificate]);
@@ -58,6 +65,10 @@ class CertificateController extends Controller
 
     public function update(Request $request)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+
         if ($request->isMethod('post')) {
             $rules = array(
                 'certno' => 'required|numeric|min:5',
@@ -88,6 +99,10 @@ class CertificateController extends Controller
 
     public function delete($id)
     {
+        if(Auth::user()->user_role != "admin"){
+            return view('pages.notauthorized');
+        }
+        
         Certificate::where('id', $id)->update([
             'deleted' => '1',
             'updated_by' => Auth::id()
