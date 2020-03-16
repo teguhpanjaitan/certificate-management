@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Certificate;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -56,7 +57,8 @@ class CertificateController extends Controller
         }
 
         $certificate = Certificate::findOrFail($id);
-        return view('pages.certificate.edit', ['certificate' => $certificate]);
+        $user = User::find($certificate->updated_by);
+        return view('pages.certificate.edit', ['certificate' => $certificate,'user' => $user]);
     }
 
     public function update(Request $request)
