@@ -78,9 +78,7 @@
                             <div class="col-sm-10">
                                 <textarea name="remarks" id="remarks" class="form-control" rows="3"
                                     placeholder="Enter ..."
-                                    style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none 0s ease 0s ;">
-                                    {{ old('remarks') }}
-                                </textarea>
+                                    style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none 0s ease 0s ;">{{ old('remarks') }}</textarea>
                             </div>
                         </div>
                     </div>
