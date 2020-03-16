@@ -46,7 +46,8 @@
                             <label for="loginid" class="col-sm-2 control-label">Login ID</label>
                             <div class="col-sm-10">
                                 <input class="form-control c_validate" data-valid="login_id" id="loginid"
-                                    name="login_id" placeholder="Login ID" type="text" required="required" value="{{ old('login_id') }}">
+                                    name="login_id" placeholder="Login ID" type="text" required="required"
+                                    value="{{ old('login_id') }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -69,7 +70,8 @@
 
                             <div class="col-sm-10">
                                 <input class="form-control c_validate" data-valid="email" id="inputEmail3"
-                                    name="inputEmail3" placeholder="Email" type="email" required="required" value="{{ old('inputEmail3') }}">
+                                    name="inputEmail3" placeholder="Email" type="email" required="required"
+                                    value="{{ old('inputEmail3') }}">
                             </div>
                         </div>
                         <div class="form-group">

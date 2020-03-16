@@ -49,7 +49,9 @@
     <!-- /.box-footer -->
     <div class="form-group">
         <div class="col-sm-12">
-        <label class=" control-label" style="float:right"><b>Last Updated By</b>: @if(isset($user->name)) {{$user->name}} @else {{""}} @endif at {{ \Carbon\Carbon::parse($certificate->updated_at)->format('d-M-Y H:i:s')}}</label>
+            <label class=" control-label" style="float:right"><b>Last Updated By</b>: @if(isset($user->name))
+                {{$user->name}} @else {{""}} @endif at
+                {{ \Carbon\Carbon::parse($certificate->updated_at)->format('d-M-Y H:i:s')}}</label>
         </div>
     </div>
 </form>

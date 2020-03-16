@@ -21,34 +21,39 @@
         <div class="form-group">
             <label for="loginid" class="col-sm-2 control-label">Login ID</label>
             <div class="col-sm-10">
-                <input class="form-control c_validate" data-valid="login_id" id="loginid" name="login_id" placeholder="Login ID" type="text" required="required" value="{{$user->login_id}}">
+                <input class="form-control c_validate" data-valid="login_id" id="loginid" name="login_id"
+                    placeholder="Login ID" type="text" required="required" value="{{$user->login_id}}">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
             <div class="col-sm-10">
-                <input class="form-control" id="inputPassword3" name="inputPassword3" placeholder="Password" type="password">
+                <input class="form-control" id="inputPassword3" name="inputPassword3" placeholder="Password"
+                    type="password">
             </div>
         </div>
         <div class="form-group">
             <label for="fullname" class="col-sm-2 control-label">Full Name</label>
             <div class="col-sm-10">
-                <input class="form-control" id="fullname" name="fullname" placeholder="Full Name" type="text" required="required" value="{{$user->name}}">
+                <input class="form-control" id="fullname" name="fullname" placeholder="Full Name" type="text"
+                    required="required" value="{{$user->name}}">
             </div>
         </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
             <div class="col-sm-10">
-                <input class="form-control c_validate" data-valid="email" id="inputEmail3" name="inputEmail3" placeholder="Email" type="email" required="required" value="{{$user->email}}">
+                <input class="form-control c_validate" data-valid="email" id="inputEmail3" name="inputEmail3"
+                    placeholder="Email" type="email" required="required" value="{{$user->email}}">
             </div>
         </div>
         <div class="form-group">
             <label for="remarks" class="col-sm-2 control-label">Remarks</label>
 
             <div class="col-sm-10">
-                <textarea name="remarks" id="remarks" class="form-control" rows="3" placeholder="Enter ..." style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none 0s ease 0s ;">{{$user->remarks}}</textarea>
+                <textarea name="remarks" id="remarks" class="form-control" rows="3" placeholder="Enter ..."
+                    style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none 0s ease 0s ;">{{$user->remarks}}</textarea>
             </div>
         </div>
     </div>

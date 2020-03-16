@@ -4,23 +4,23 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu tree" data-widget="tree">
         @if(\Illuminate\Support\Facades\Auth::user()->user_role == "admin")
-            <li class="header"></li>
-            @if (Request::is('/*'))
-            <li class="active">
+        <li class="header"></li>
+        @if (Request::is('/*'))
+        <li class="active">
             @else
-            <li>
+        <li>
             @endif
-                <a href="/">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                </a>
-            </li>
+            <a href="/">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            </a>
+        </li>
         @endif
 
         @if (Request::is('certificate*'))
         <li class="active">
-        @else
+            @else
         <li>
-        @endif
+            @endif
             <a href="/certificate">
                 <i class="fa fa-th"></i> <span>Certification Management</span>
             </a>
@@ -28,9 +28,9 @@
 
         @if (Request::is('account*'))
         <li class="active">
-        @else
+            @else
         <li>
-        @endif
+            @endif
             <a href="/account">
                 <i class="fa fa-user"></i><span>Account Management</span>
             </a>

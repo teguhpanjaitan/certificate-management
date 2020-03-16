@@ -20,8 +20,8 @@
         <div id="formlogin">
             <form action="/forgot-password" method="post">
                 <div class="form-group has-feedback">
-                    <input class="form-control" type="email" name="reg_email"
-                        placeholder="Enter your registered email" required="">
+                    <input class="form-control" type="email" name="reg_email" placeholder="Enter your registered email"
+                        required="">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <!-- /.col -->

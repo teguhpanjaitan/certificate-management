@@ -59,15 +59,20 @@
                                 <td>{{ $account->remarks }}</td>
                                 @if ($role === "admin")
                                 <td>
-                                    <a href="#" data-toggle="modal" data-target="#editmodel" data-userid="{{ $account->id }}" data-title="Edit Account">
-                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 10px 0px 10px"> </i>
+                                    <a href="#" data-toggle="modal" data-target="#editmodel"
+                                        data-userid="{{ $account->id }}" data-title="Edit Account">
+                                        <i class='fa fa-pencil' aria-hidden='true' style="padding:0px 10px 0px 10px">
+                                        </i>
                                     </a>
-                                    <a href="#" data-toggle="modal" data-target="#deletemodel" data-userid="{{ $account->id }}">
+                                    <a href="#" data-toggle="modal" data-target="#deletemodel"
+                                        data-userid="{{ $account->id }}">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </a>
-                                    <a href="#" data-toggle="modal" data-title="{{ $account->locked }}" data-target="#lockmodel" data-userid="{{ $account->id }}">
+                                    <a href="#" data-toggle="modal" data-title="{{ $account->locked }}"
+                                        data-target="#lockmodel" data-userid="{{ $account->id }}">
                                         @if ($account->locked === 1)
-                                        <i class="fa fa-unlock-alt" aria-hidden="true" style="padding:0px 10px 0px 10px"></i>
+                                        <i class="fa fa-unlock-alt" aria-hidden="true"
+                                            style="padding:0px 10px 0px 10px"></i>
                                         @else
                                         <i class="fa fa-lock" aria-hidden="true" style="padding:0px 10px 0px 10px"></i>
                                         @endif
@@ -106,7 +111,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Edit Account</h4>
             </div>
             <div class="modal-body">
@@ -122,7 +128,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Are you sure you want to Delete?</h4>
             </div>
             <div class="modal-body">
@@ -154,7 +161,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Are you sure you want to lock this user?</h4>
             </div>
             <div class="modal-body">
@@ -232,7 +240,7 @@
     });
 </script>
 <style>
-    #table_filter{
+    #table_filter {
         text-align: right;
     }
 </style>

@@ -34,32 +34,40 @@
                         <div class="form-group">
                             <label for="certno" class="col-sm-2 control-label">Credential Reference</label>
                             <div class="col-sm-10">
-                                <input class="form-control c_validate" data-valid="cred_reference" id="certno" name="certno" placeholder="Credential Reference" type="text" required="" value="{{ old('certno') }}">
+                                <input class="form-control c_validate" data-valid="cred_reference" id="certno"
+                                    name="certno" placeholder="Credential Reference" type="text" required=""
+                                    value="{{ old('certno') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="dateawarded" class="col-sm-2 control-label">Date of Awarded</label>
                             <div class="col-sm-10">
-                                <input class="form-control datemask" id="dateawarded" name="dateawarded" placeholder="Date Awarded" type="date" required="">
+                                <input class="form-control datemask" id="dateawarded" name="dateawarded"
+                                    placeholder="Date Awarded" type="date" required="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="recipient" class="col-sm-2 control-label">Name of Recipient</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" id="recipient" name="recipient" placeholder="Name of Recipient" type="text" required="" value="{{ old('recipient') }}">
+                                <input class="form-control" id="recipient" name="recipient"
+                                    placeholder="Name of Recipient" type="text" required=""
+                                    value="{{ old('recipient') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="awardname" class="col-sm-2 control-label">Name of Award</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="awardname" name="awardname" placeholder="Name of Award" type="text" required="" value="{{ old('awardname') }}">
+                                <input class="form-control" id="awardname" name="awardname" placeholder="Name of Award"
+                                    type="text" required="" value="{{ old('awardname') }}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="natureofaward" class="col-sm-2 control-label">Nature of Award</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="natureofaward" name="natureofaward" placeholder="Nature of Award" type="text" required="" value="{{ old('natureofaward') }}">
+                                <input class="form-control" id="natureofaward" name="natureofaward"
+                                    placeholder="Nature of Award" type="text" required=""
+                                    value="{{ old('natureofaward') }}">
                             </div>
                         </div>
                     </div>
