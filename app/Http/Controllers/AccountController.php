@@ -38,7 +38,12 @@ class AccountController extends Controller
                 'role' => 'required',
             );
 
-            $validator = Validator::make($request->all(), $rules);
+            $customMessages = [
+                'inputPassword3.required' => 'The password field is required.',
+                'inputEmail3.required' => 'The email field is required.'
+            ];        
+
+            $validator = Validator::make($request->all(), $rules, $customMessages);
 
             if ($validator->fails()) {
                 return Redirect::to('/account/add')->withErrors($validator)->withInput($request->except('password'));
@@ -90,7 +95,12 @@ class AccountController extends Controller
                 'role' => 'required',
             );
 
-            $validator = Validator::make($request->all(), $rules);
+            $customMessages = [
+                'inputPassword3.required' => 'The password field is required.',
+                'inputEmail3.required' => 'The email field is required.'
+            ];        
+
+            $validator = Validator::make($request->all(), $rules, $customMessages);
 
             if ($validator->fails()) {
                 return Redirect::to('/account')->withErrors($validator);
