@@ -65,4 +65,11 @@
         <button type="submit" name="save_account" class="btn btn-info pull-right">Save</button>
     </div>
     <!-- /.box-footer -->
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label class=" control-label" style="float:right"><b>Last Updated By</b>: @if(isset($updatedBy->name))
+                {{$updatedBy->name}} @else {{""}} @endif at
+                {{ \Carbon\Carbon::parse($user->updated_at)->format('d-M-Y h:i:s A')}}</label>
+        </div>
+    </div>
 </form>

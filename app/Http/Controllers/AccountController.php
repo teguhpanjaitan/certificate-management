@@ -72,7 +72,8 @@ class AccountController extends Controller
         }
 
         $user = User::findOrFail($id);
-        return view('pages.account.edit', ['user' => $user]);
+        $updatedBy = User::find($user->updated_by);
+        return view('pages.account.edit', ['user' => $user,'updatedBy' => $updatedBy]);
     }
 
     public function update(Request $request)
