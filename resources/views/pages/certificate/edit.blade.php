@@ -51,7 +51,7 @@
         <div class="col-sm-12">
             <label class=" control-label" style="float:right"><b>Last Updated By</b>: @if(isset($user->name))
                 {{$user->name}} @else {{""}} @endif at
-                {{ \Carbon\Carbon::parse($certificate->updated_at)->setTimezone('Asia/Singapore')->format('d-M-Y h:i:s A')}}</label>
+                {{ \Carbon\Carbon::parse($certificate->updated_at)->format('d-M-Y h:i:s A')}}</label>
         </div>
     </div>
 </form>
