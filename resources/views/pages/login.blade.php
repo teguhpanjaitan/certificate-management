@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="/"><b>SIPMM </b>ADMIN</a>
+        <a href=""><b>SIPMM </b>ADMIN</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -18,7 +18,7 @@
         @endif
         <p class="login-box-msg">Please Sign In</p>
         <div id="formlogin">
-            <form action="/login" method="post">
+            <form action="login" method="post">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" name="loginid" placeholder="Login ID" required>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -41,7 +41,7 @@
                 @csrf
             </form>
         </div>
-        <a href="/password/reset">I forgot my password</a><br>
+        <a href="password/reset">I forgot my password</a><br>
     </div>
 </div>
 <!-- /.login-box -->

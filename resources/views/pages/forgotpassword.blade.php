@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="index.php"><b>SIPMM </b>ADMIN</a>
+        <a href=""><b>SIPMM </b>ADMIN</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -18,7 +18,7 @@
         @endif
         <p class="login-box-msg">Forgot Password</p>
         <div id="formlogin">
-            <form action="/forgot-password" method="post">
+            <form action="forgot-password" method="post">
                 <div class="form-group has-feedback">
                     <input class="form-control" type="email" name="reg_email" placeholder="Enter your registered email"
                         required="">

@@ -159,7 +159,7 @@
         $.ajax({
             type: "GET",
             cache: false,
-            url: "/certificate/edit/" + cert_id,
+            url: "certificate/edit/" + cert_id,
             success: function(resp) {
                 modal.find('.modal-body').html(resp);
             }
@@ -180,7 +180,7 @@
         var modal = $(this);
         var button = $(event.relatedTarget);
         var cert_id = button.data('certid');
-        modal.find('.modal-body #confirm-link').attr('href', '/certificate/delete/' + cert_id);
+        modal.find('.modal-body #confirm-link').attr('href', 'certificate/delete/' + cert_id);
     });
 </script>
 <style>

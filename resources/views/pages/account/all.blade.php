@@ -201,7 +201,7 @@
         $.ajax({
             type: "GET",
             cache: false,
-            url: "/account/edit/" + userid,
+            url: "account/edit/" + userid,
             success: function(resp) {
                 modal.find('.modal-body').html(resp);
             }
@@ -219,7 +219,7 @@
         var modal = $(this);
         var button = $(event.relatedTarget);
         var userid = button.data('userid');
-        modal.find('.modal-body #confirm-link').attr('href', '/account/delete/' + userid);
+        modal.find('.modal-body #confirm-link').attr('href', 'account/delete/' + userid);
     });
 
     $('#lockmodel').on('show.bs.modal', function(event) {
@@ -229,10 +229,10 @@
         var ttile = button.data('title');
         if (ttile == 0) {
             ttile = "Are you sure you want to lock this user?"
-            modal.find('.modal-body #confirm-link').attr('href', '/account/lock/' + userid + '/1');
+            modal.find('.modal-body #confirm-link').attr('href', 'account/lock/' + userid + '/1');
         } else {
             ttile = "Are you sure you want to unlock this user?"
-            modal.find('.modal-body #confirm-link').attr('href', '/account/lock/' + userid + '/0');
+            modal.find('.modal-body #confirm-link').attr('href', 'account/lock/' + userid + '/0');
         }
         modal.find('.modal-title').text(ttile);
 

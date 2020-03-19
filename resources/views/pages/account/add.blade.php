@@ -30,7 +30,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="/account/add" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="account/add" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="userrole" class="col-sm-2 control-label">User Role</label>
@@ -87,7 +87,7 @@
                     @csrf
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="/account" class="btn btn-default">Cancel</a>
+                        <a href="account" class="btn btn-default">Cancel</a>
                         <button type="submit" name="save_account" class="btn btn-info pull-right">Save</button>
                     </div>
                     <!-- /.box-footer -->
